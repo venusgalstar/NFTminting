@@ -90,7 +90,7 @@ const PrettoSlider = styled(Slider)({
 function RoadMap(props) {
   return (
     <div className='roadmap-row'>
-      <div style={{ width: "70px" }}>
+      <div className='roadmap_index'>
         <div className='roadmap_item active'>
           <span className='fs-26 noto-bold c-black'>
             {props.index}
@@ -152,6 +152,14 @@ function App() {
   return (
     <>
       <div className='header padder-50'>
+        <div>
+          <a className='link-twitter'>
+            <i className="fab fa-twitter"></i>
+          </a>
+          <a className='link-discord'>
+            <i className="fab fa-discord"></i>
+          </a>
+        </div>
         <ThemeProvider theme={connectTheme}>
           <Button variant="contained" color="primary" className="btn_connect" onClick={connectWallet}>Connect Wallet</Button>
         </ThemeProvider>
@@ -205,18 +213,31 @@ function App() {
         <div className='clanz_content content-max'>
           <div className='left flex flex-col flex1'>
             <p className='fs-20 c-w'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aciaculis nisi. Nullla eget ipsum id quam auctor vehicula.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aciaculis nisi. Nullla eget ipsum id quam auctor vehicula.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aciaculis nisi. Nullla eget ipsum id quam auctor vehicula.
+
+              Welcome to the Rhino Clanz. Rhino Clanz is a collection of 3333
+              unique NFT. CRC digital collectibles living on the Cronos
+              Blockchain. Each Rhino Clanz is a unique non fungibles token (NFT),
+              mix of various assets, colors, and backgrounds to make them unique.
+              Rhino Clanz acts as an essential part of interacting within our
+              community through Social Media and future airdrops and other perks.
+              Future develop and perks will be released over time.
             </p>
             <p className='fs-20 c-w m-t-20'>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aciaculis nisi. Nullla eget ipsum id quam auctor vehicula.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aciaculis nisi. Nullla eget ipsum id quam auctor vehicula.
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aciaculis nisi. Nullla eget ipsum id quam auctor vehicula.
+              Holding Cro Rhino Clanz allows you to participate in the CRC event and
+              could win NFT, Merch and many others things after the public sale ends!
+              Holders can vote for experiences, activations and campaigns that benefit
+              the Rhino Clanz.<br />
+              The Cro Rhino Clanz (CRC) public sales opens on __ , FEBRUARY XXth
+              around ____pm XXX.<br />
+              Join the Rhino Clanz community on Twitter and Discord!
             </p>
             <div className='clanz_buttons'>
               <ThemeProvider theme={loadmapTheme}>
-                <Button variant="contained" color="primary" className='btn_roadmap'>See Loadmaps</Button>
+                <Button variant="contained" color="primary" className='btn_roadmap'>
+                  <a href='#section_roadmap' style={{ width: "100%", height: "100%", color: "white", textDecoration:"none" }}>
+                    See Roadmaps
+                  </a>
+                </Button>
               </ThemeProvider>
               <div style={{ width: "80px" }}></div>
               <ThemeProvider theme={loadmapTheme}>
@@ -302,7 +323,7 @@ function App() {
         <div className='content padder-80 m-t-50 content-max'>
           <div>
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     1
@@ -315,7 +336,7 @@ function App() {
             </div>
 
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     2
@@ -328,7 +349,7 @@ function App() {
             </div>
 
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     3
@@ -341,7 +362,7 @@ function App() {
             </div>
 
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     4
@@ -353,7 +374,7 @@ function App() {
               </div>
             </div>
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     5
@@ -365,7 +386,7 @@ function App() {
               </div>
             </div>
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     6
@@ -378,7 +399,7 @@ function App() {
               </div>
             </div>
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     7
@@ -391,7 +412,7 @@ function App() {
               </div>
             </div>
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     8
@@ -404,7 +425,7 @@ function App() {
               </div>
             </div>
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     9
@@ -417,7 +438,7 @@ function App() {
               </div>
             </div>
             <div className='roadmap-row'>
-              <div style={{ width: "70px" }}>
+              <div className='roadmap_index'>
                 <div className='roadmap_item'>
                   <span className='fs-26 noto-bold c-black'>
                     10

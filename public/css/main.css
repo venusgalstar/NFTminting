@@ -7,11 +7,13 @@ body {
 .header {
     height: 70px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
 }
 
-
+.roadmap_index {
+    width: 70px;
+}
 
 .btn_connect {
     height: 45px;
@@ -42,6 +44,29 @@ body {
     border-radius: 20px;
     padding: 30px 40px 20px 40px;
 }
+
+
+.link-twitter {
+    font-size: 30px;
+    color: white;
+}
+
+.link-twitter:active, .link-twitter:focus, .link-twitter:hover {
+    color: #ffbd59;
+}
+
+
+.link-discord {
+    margin-left: 20px;
+    font-size: 30px;
+    color: white;
+}
+
+.link-discord:active, .link-discord:focus, .link-discord:hover {
+    color: #ffbd59;
+}
+
+
 
 
 .btn_roadmap {
@@ -83,7 +108,7 @@ body {
     display: flex;
 }
 
-.clanz_content > .left {
+.clanz_content>.left {
     margin-right: 100px;
 }
 
@@ -92,7 +117,7 @@ body {
     padding-right: 210px;
     padding-left: 210px;
     justify-content: space-between;
-} 
+}
 
 
 
@@ -105,15 +130,15 @@ body {
 
 
 
- .mint-title {
-     font-size: 75px;
-     height: 130px;
-     color: black;
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     font-family: OpenSans-ExtraBold;
- } 
+.mint-title {
+    font-size: 75px;
+    height: 130px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: OpenSans-ExtraBold;
+}
 
 
 .mint-subtitle {
@@ -121,6 +146,7 @@ body {
     color: black;
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 
@@ -144,7 +170,7 @@ body {
     background-image: url(/img/clanz1.png);
     /* width: 35vw; */
     /* height: 35vw; */
-    width:529px;
+    width: 529px;
     height: 529px;
     background-size: cover;
     background-position: center;
@@ -156,6 +182,7 @@ body {
     align-items: center;
     display: flex;
     font-size: 40px;
+    font-family: OpenSans-Bold;
 }
 
 .rhino-container {
@@ -272,6 +299,7 @@ body {
 .font-regular {
     font-family: OpenSans-Light;
 }
+
 .font-semiBold {
     font-family: Opensans-SemiBold;
 }

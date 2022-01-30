@@ -94,6 +94,7 @@
         padding-right: 50px;
         padding-left: 50px;
     }
+
     .padder-50 {
         padding-right: 40px;
         padding-left: 40px;
@@ -151,10 +152,14 @@
     .mint-title {
         font-size: 60px;
         height: 100px;
+        line-height: 1.1;
+        text-align: center;
+        margin-bottom: 20px;
+        /* height: unset !important; */
     }
 
     .mint-subtitle {
-        font-size: 28px;
+        font-size: 27px;
 
     }
 }
@@ -189,7 +194,7 @@
         padding-right: 30px;
         padding-left: 30px;
     }
-    
+
     .team-member {
         padding-left: 0px;
         padding-right: 0px;
@@ -230,7 +235,7 @@
     }
 
     .btn_roadmap {
-        padding-top: 15px !important;
+        padding-top: 10px !important;
         padding-bottom: 10px !important;
         font-size: 15px !important;
     }
@@ -240,5 +245,90 @@
         padding-bottom: 10px !important;
         font-size: 15px !important;
     }
+
+}
+
+@media (max-width: 450px) {
+    .mint-title {
+        text-align: center;
+        font-size: 50px;
+    }
+
+    .mint-subtitle {
+        font-size: 24px;
+    }
+
+    .clanz_content>.left>.fs-20 {
+        font-size: 16px;
+    }
+
+    .clanz_buttons {
+        margin-top: 40px;
+    }
+
+    .btn_roadmap {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .btn_collection {
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+    }
+
+    .right_image {
+        width: 320px;
+        height: 320px;
+    }
+
+    .rhino-container {
+        padding: 20px 20px;
+    }
+
+    .rhino-container>.left {
+        width: 300px;
+        height: 300px;
+    }
+
+    .rhino-item {
+        font-size: 20px;
+        height: 50px;
+    }
+
+    #section_roadmap>.title {
+        height: 150px;
+        font-size: 60px;
+    }
+
+    .roadmap_index {
+        width: 50px;
+    }
+
+    .roadmap_item {
+        width: 50px;
+    }
+
+    .roadmap_row > .fs-30 {
+        font-size: 16px;
+    }
+
+    .nft > .fs-35 {
+        font-size: 20px;
+    }
+
+    .photo_item {
+        width: 150px;
+        height: 150px;
+    }
+
+    .contract > .fs-50 {
+        font-size: 30px;
+    }
+
+    .contract > .fs-30 {
+        font-size: 15px;
+    }
+
+
 
 }
