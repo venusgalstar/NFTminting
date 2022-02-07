@@ -1,3 +1,11 @@
+@media (max-width: 1200px) {
+    .right_image {
+        width: 430px;
+        height: 430px;
+    }
+}
+
+
 @media (max-width: 1024px) {
 
 
@@ -255,7 +263,7 @@
     }
 
     .mint-subtitle {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .clanz_content>.left>.fs-20 {
@@ -328,7 +336,12 @@
     .contract > .fs-30 {
         font-size: 15px;
     }
+}
 
+@media (max-width: 370px) {
 
-
+    .rhino-container>.left {
+        width: 270px;
+        height: 270px;
+    }
 }
