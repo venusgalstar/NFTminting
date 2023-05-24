@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
 import Web3 from 'web3';
+import config from './constant';
 
 
 const connectTheme = createTheme({
@@ -104,15 +105,16 @@ function RoadMap(props) {
   );
 }
 
-const web3 = new Web3();
-
+var web3;
+var contract;
+var token_contract;
 
 function App() {
 
-  const [count, setCount] = useState(20);
-  const [account, setAccount] = useState();
+  const [count, setCount] = useState(5);
+  const [account, setAccount] = useState("Connect Wallet");
 
-
+  
 
   const handleChange = (event, newValue) => {
     setCount(newValue);
@@ -121,16 +123,28 @@ function App() {
   const connectWallet = async () => {
     // var web3 = new Web3(web3)
     await window.ethereum.enable();
-    // const provider = Web3.providers.HttpProvider(config.testNetUrl);
-    const web3 = new Web3(Web3.givenProvider);
+    const provider = Web3.providers.HttpProvider(config.rpc);
+    web3 = new Web3(Web3.givenProvider || provider);
     web3.eth.getAccounts((err, accounts) => {
       setAccount(accounts[0]);
       console.log("account", accounts[0]);
+    });
+
+    web3.eth.getChainId().then((chainId) => {
+      if (web3.utils.toHex(chainId) !== web3.utils.toHex(config.chainId)) {
+        alert("Switch to BSC Testnet!");
+      }
     })
+
+    contract = new web3.eth.Contract(config.abi, config.address);
+    token_contract = new web3.eth.Contract(config.token_abi, config.token_address);
   }
 
   const onMint = () => {
-    NotificationManager.info('Please connect wallet', "", 2000);
+    console.log('a');
+    const MAX_APPROVE_VALUE = web3.utils.toWei(Number.MAX_SAFE_INTEGER.toString(), 'ether');
+    token_contract.methods.approve(config.address, MAX_APPROVE_VALUE).send({from:account});
+    contract.methods.mintpid(account, count, 0).send({from:account});
   }
 
   const List = [
@@ -142,9 +156,9 @@ function App() {
     { index: 6, content: " At 100% minted goes live rarity traits tools." },
     { index: 7, content: " Big prize for the holders" },
     { index: 8, content: " NFT stacking" },
-    { index: 9, content: "Buy Metaverse land for Cro Rhino Clanz Holder" },
+    { index: 9, content: "Buy Metaverse land for PEPE BORN Holder" },
     { index: 10, content: "Try to be listed on CDC marketplace" },
-    { index: 11, content: "Launch Baby Rhino Clanz (some rhino holders could recive for free)" },
+    { index: 11, content: "Launch Baby PEPE BORN (some rhino holders could recive for free)" },
 
   ]
 
@@ -161,16 +175,16 @@ function App() {
           </a>
         </div>
         <ThemeProvider theme={connectTheme}>
-          <Button variant="contained" color="primary" className="btn_connect" onClick={connectWallet}>Connect Wallet</Button>
+          <Button variant="contained" color="primary" className="btn_connect" onClick={connectWallet}>{account}</Button>
         </ThemeProvider>
       </div>
       <div id='section_mint'>
         <div >
           <div className='mint-title' >
-            Cro Rhino Clanz
+            Pepe Born NFT
           </div>
           <div className='mint-subtitle'>
-            3333 Rhinos v2 on the Cronos Chain
+            3333 Rhinos v2 on the BSC Testnet
           </div>
         </div>
         <div className='mint_pannel m-t-20'>
@@ -181,55 +195,55 @@ function App() {
             minted
           </div>
           <div className='c-w h-70 fs-32 flex align-center noto-bold font-bold'>
-            Price: {count * 50} CRO
+            Price: {count * 0.01} BNB
           </div>
           <div className='flex flex-col align-center justify-center h-100' >
             <PrettoSlider
               valueLabelDisplay="auto"
               aria-label="pretto slider"
-              defaultValue={3}
+              defaultValue={1}
               min={0}
-              max={20}
+              max={5}
               value={count}
               onChange={handleChange}
             />
             <div className='flex w-full justify-between'>
               <span className='c-w fs-20 noto-bold font-extraBold'>0</span>
               <span className='c-w fs-15 flex1'></span>
-              <span className='c-w fs-20 noto-bold font-extraBold'>20</span>
+              <span className='c-w fs-20 noto-bold font-extraBold'>5</span>
             </div>
           </div>
           <div className='flex justify-center'>
             <ThemeProvider theme={mintTheme}>
-              <Button className='btn_mint font-bold' color='primary' variant='contained'>MINT</Button>
+              <Button className='btn_mint font-bold' color='primary' variant='contained' onClick={onMint}>MINT</Button>
             </ThemeProvider>
           </div>
         </div>
       </div>
       <div id='section_clanz'>
         <div className='title fs-40 c-w noto-bold font-extraBold'>
-          Cro Rhino Clanz
+          PEPE BORN
         </div>
         <div className='clanz_content content-max'>
           <div className='left flex flex-col flex1'>
             <p className='fs-20 c-w'>
 
-              Welcome to the Rhino Clanz. Rhino Clanz is a collection of 3333
+              Welcome to the PEPE BORN. PEPE BORN is a collection of 3333
               unique NFT. CRC digital collectibles living on the Cronos
-              Blockchain. Each Rhino Clanz is a unique non fungibles token (NFT),
+              Blockchain. Each PEPE BORN is a unique non fungibles token (NFT),
               mix of various assets, colors, and backgrounds to make them unique.
-              Rhino Clanz acts as an essential part of interacting within our
+              PEPE BORN acts as an essential part of interacting within our
               community through Social Media and future airdrops and other perks.
               Future develop and perks will be released over time.
             </p>
             <p className='fs-20 c-w m-t-20'>
-              Holding Cro Rhino Clanz allows you to participate in the CRC event and
+              Holding PEPE BORN allows you to participate in the CRC event and
               could win NFT, Merch and many others things after the public sale ends!
               Holders can vote for experiences, activations and campaigns that benefit
-              the Rhino Clanz.<br />
-              The Cro Rhino Clanz (CRC) public sales opens on __ , FEBRUARY XXth
+              the PEPE BORN.<br />
+              The PEPE BORN (CRC) public sales opens on __ , FEBRUARY XXth
               around ____pm XXX.<br />
-              Join the Rhino Clanz community on Twitter and Discord!
+              Join the PEPE BORN community on Twitter and Discord!
             </p>
             <div className='clanz_buttons'>
               <ThemeProvider theme={loadmapTheme}>
@@ -433,7 +447,7 @@ function App() {
                 </div>
               </div>
               <div className='fs-30 m-l-10'>
-                Buy Metaverse land for Cro Rhino Clanz holder.
+                Buy Metaverse land for PEPE BORN holder.
 
               </div>
             </div>
@@ -446,7 +460,7 @@ function App() {
                 </div>
               </div>
               <div className='fs-30 m-l-10'>
-                Launch Baby Rhino Clanz.
+                Launch Baby PEPE BORN.
               </div>
             </div>
 
@@ -460,7 +474,7 @@ function App() {
                 Prizes could be NFT, Cryptocurrencies, Merch, and many others.
               </li>
               <li>
-                Exclusive space like <b>lands in metaverses</b> and <b>discord channel</b> for verified <b>Rhino Clanz owner</b> where the community will <b>shape the future</b> of the club by <b>voting</b> on current and future events and decision.
+                Exclusive space like <b>lands in metaverses</b> and <b>discord channel</b> for verified <b>PEPE BORN owner</b> where the community will <b>shape the future</b> of the club by <b>voting</b> on current and future events and decision.
               </li>
               <li>
                 Exploring potential collabs that can bring advantages to the holders.
@@ -518,7 +532,7 @@ function App() {
             <img src='/img/discord.png'></img>
           </div>
           <div className='c-w fs-24 flex align-center text-center m-t-20'>
-            The Rhino Clanz<br />© 2021
+            The PEPE BORN<br />© 2021
           </div>
         </div>
       </div>
